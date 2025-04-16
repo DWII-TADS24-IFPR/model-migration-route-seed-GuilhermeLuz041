@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  app:
+    image: php:8.2-apache
+    container_name: laravel-app
+    ports:
+      - "8000:80"
+    volumes:
+      - ./app:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - db
+    networks:
+      - laravel
+
+  composer:
+    image: composer:latest
+    container_name: composer
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    entrypoint: ["composer"]
+    networks:
+      - laravel
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laraveluser
+      MYSQL_PASSWORD: laravelpass
+    ports:
+      - "3306:3306"
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
