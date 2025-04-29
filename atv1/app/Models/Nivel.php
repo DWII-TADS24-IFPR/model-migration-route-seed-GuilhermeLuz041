@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Nivel extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = ['nome'];
 }

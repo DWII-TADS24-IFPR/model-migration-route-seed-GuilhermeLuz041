@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Comprovante extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = ['horas', 'atividade', 'categoria_id', 'aluno_id'];
 }

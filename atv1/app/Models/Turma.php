@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Turma extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = ['ano', 'curso_id', 'aluno_id'];
+
 }

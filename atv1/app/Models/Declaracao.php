@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Declaracao extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = ['hash', 'data', 'aluno_id', 'comprovante_id'];
 }

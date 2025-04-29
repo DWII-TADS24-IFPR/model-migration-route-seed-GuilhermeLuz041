@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Categoria extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = ['nome', 'maximo_horas', 'curso_id'];
 }
