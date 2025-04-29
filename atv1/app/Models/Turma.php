@@ -11,4 +11,8 @@ class Turma extends Model
 
     protected $fillable = ['ano', 'curso_id', 'aluno_id'];
 
+    public function alunos(){
+        return $this->hasMany(Aluno::class);
+    }
+
 }

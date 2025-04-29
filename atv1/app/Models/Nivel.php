@@ -11,4 +11,8 @@ class Nivel extends Model
 
     protected $table = 'nível';
     protected $fillable = ['nome'];
+
+    public function cursos(){
+        return $this->hasMany(Curso::class);
+    }
 }
